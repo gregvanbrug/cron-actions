@@ -1,0 +1,23 @@
+name: Sync
+
+on:
+  pull_request:
+    branches:
+      - '*'
+    types:
+      - closed
+
+jobs:
+  sync-branch:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Merge main to dev
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: dev
+          github_token: ${{ github.token }}
