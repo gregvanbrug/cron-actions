@@ -2,7 +2,7 @@ name: Stage
 
 on:
   schedule:
-    - cron: "20 20 * * *"
+    - cron: "30 20 * * *"
 
 jobs:
   sync-branch:
