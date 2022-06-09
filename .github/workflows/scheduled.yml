@@ -2,7 +2,8 @@ name: Stage
 
 on:
   schedule:
-    - cron: "0 21 * * 1-5"
+    # Runs Mon-Fri at 16:00 UTC ( 12:00 EST )
+    - cron: "0 16 * * 1-5"
 
 jobs:
   sync-branch:
